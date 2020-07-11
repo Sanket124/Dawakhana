@@ -1,0 +1,111 @@
+{% load static %}
+
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Get Medical Registered </title>
+
+    <script type="text/javascript">
+    
+        function validate(){
+            pass=document.getElementById('password');
+            conf_pass=document.getElementById('re_password');
+             if(conf_pass.value == pass.value)
+             {
+                alert("Confirm Password  match with the existing password.")
+             }
+             else {
+              alert("User not saved.. Confirm Password does not match with the existing password.")
+             }
+          
+          }
+    
+    </script>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="{% static 'static1/fonts/material-icon/css/material-design-iconic-font.min.css' %}">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="{% static 'static1/css/style.css' %}">
+</head>
+<body>
+
+    <div class="main">
+
+        <section class="signup">
+             <img src="" alt=""> 
+            <div class="container">
+                <div class="signup-content">
+                    
+                    <form method="POST" id="signup-form" class="signup-form" action="/rentVehichle" enctype="multipart/form-data" enctype="multipart/form-data">
+                         {% csrf_token %}
+                        
+                        <h2 class="form-title">Get Medical Registered</h2>
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="oname"  placeholder="Owner's Name" required/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-input"  name="sname"  placeholder="Shop's Name" required/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="saddress"  placeholder="Shop's Address" required />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="wano" pattern="[1-9]{1}[0-9]{9}" placeholder="WhatsApp No" required/>
+                        </div>
+                      
+                        <div class="form-group">
+                            <select class="form-input" name="hdstatus"  required/>
+                            <option value="Home-Delivery Available">Home-Delivery Available</option>
+                            <option value="Home-Delivery Unavailable">Home-Delivery Unavailable</option>
+                        </select>
+                        </div>  
+
+
+                        <div class="form-group ">
+                            <label >Upload Shop's Registration pdf :</label>
+                            <br>
+                            <input type="file" name="vregis" class="form-submit" required>
+                          </div>
+                            
+                        <div class="form-group ">
+                            <label >Upload Shop's Photo :</label>
+                            <br>
+                            <input type="file" name="myfile" class="form-submit" required>
+                          </div>
+
+                         
+
+                         
+                        
+                      <!--  <div class="form-group">
+                            <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                            <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+                        </div> -->
+                          <br>
+                        <div class="form-group">
+                            <input type="submit"  name="submit" id="submit" class="form-submit" value="Submitt"/>
+                        </div>
+                        
+                    </form>
+                    {% endblock %}
+              <!--      <p class="loginhere">
+                        Have already an account ? <a href="login" class="loginhere-link">Login here</a>
+                    </p>-->
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- JS -->
+    <script src="{% static 'static1/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'static1/js/main.js' %}"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
